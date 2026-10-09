@@ -1,7 +1,7 @@
 // ===============================
 // ASETUKSET
 // ===============================
-const API = "http://localhost:5000";
+const API = "https://fotovahviala-backend.onrender.com";
 
 // ===============================
 // KUVAKARUSELLI
@@ -174,7 +174,7 @@ async function naytaAsiakkaat() {
     try {
 
         const vastaus = await fetch(
-            "/api/admin/asiakkaat"
+            "${API}/api/admin/asiakkaat"
         );
 
         const asiakkaat = await vastaus.json();
@@ -237,7 +237,7 @@ async function poistaKuvat(asiakasId) {
     try {
 
         const vastaus = await fetch(
-            `/api/admin/asiakkaat/${asiakasId}/kuvat`,
+            `${API}/api/admin/asiakkaat/${asiakasId}/kuvat`,
             {
                 method: "DELETE"
             }
@@ -273,7 +273,7 @@ async function poistaAsiakas(asiakasId) {
     try {
 
         const vastaus = await fetch(
-            `/api/admin/asiakkaat/${asiakasId}`,
+            `${API}/api/admin/asiakkaat/${asiakasId}`,
             {
                 method: "DELETE"
             }
@@ -349,7 +349,7 @@ async function haeKuvat() {
 
   data.kuvat.forEach(kuva => {
     const img = document.createElement("img");
-    img.src = `/galleriat/${data.asiakasId}/${kuva}`;
+    img.src = `${API}/galleriat/${data.asiakasId}/${kuva}`;
     img.classList.add("galleria-kuva");
     container.appendChild(img);
   });
@@ -379,7 +379,7 @@ document
             viesti: form.viesti.value
         };
 
-        const vastaus = await fetch("/api/yhteydenotto", {
+        const vastaus = await fetch("${API}/api/yhteydenotto", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
