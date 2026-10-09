@@ -49,7 +49,7 @@ async function kirjauduAdmin() {
     const kayttaja = document.getElementById("kayttaja").value;
     const salasana = document.getElementById("admin_salasana").value;
 
-    const vastaus = await fetch("http://localhost:5000/api/kirjautuminen/admin", {
+    const vastaus = await fetch("${API}/api/kirjautuminen/admin", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
