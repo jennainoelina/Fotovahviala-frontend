@@ -49,7 +49,7 @@ async function kirjauduAdmin() {
     const kayttaja = document.getElementById("kayttaja").value;
     const salasana = document.getElementById("admin_salasana").value;
 
-    const vastaus = await fetch("${API}/api/kirjautuminen/admin", {
+    const vastaus = await fetch(`${API}/api/kirjautuminen/admin`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -174,7 +174,7 @@ async function naytaAsiakkaat() {
     try {
 
         const vastaus = await fetch(
-            "${API}/api/admin/asiakkaat"
+            `${API}/api/admin/asiakkaat`
         );
 
         const asiakkaat = await vastaus.json();
@@ -379,7 +379,7 @@ document
             viesti: form.viesti.value
         };
 
-        const vastaus = await fetch("${API}/api/yhteydenotto", {
+        const vastaus = await fetch(`${API}/api/yhteydenotto`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
