@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin – Kirjautuminen</title>
+    <link rel="stylesheet" href="tyylit.css">
+</head>
+
+    <script src="frontend.js" defer></script>
+
+<body>
+
+    <nav class="navi">
+        <div class="logo">FOTOVAHVIALA</div>
+
+        <ul class="menu">
+            <li><a href="etusivu.html">ETUSIVU</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="hinnasto.html">HINNASTO</a></li>
+            <li><a href="yhteystiedot.html">YHTEYSTIEDOT</a></li>
+            <li><a href="kirjautuminen.html">GALLERIA</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <h1>Admin – Kirjaudu sisään</h1>
+
+        <form onsubmit="event.preventDefault(); kirjauduAdmin();">
+            <label>Käyttäjä</label>
+            <input id="kayttaja" type="text" value="admin">
+
+            <label>Salasana</label>
+            <input id="admin_salasana" type="password">
+
+            <button type="submit" onclick="kirjauduAdmin()">Kirjaudu</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

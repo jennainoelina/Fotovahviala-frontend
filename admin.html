@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <title>FOTOVAHVIALA</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="tyylit.css" />
+</head>
+
+<script src="frontend.js" defer></script>
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin-paneeli – Fotovahviala</title>
+  <link rel="stylesheet" href="tyylit.css">
+</head>
+
+<body>
+
+  <!-- Navigaatio -->
+  <nav class="navi">
+      <div class="logo">FOTOVAHVIALA</div>
+
+      <ul class="menu">
+            <li><a href="etusivu.html">ETUSIVU</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="hinnasto.html">HINNASTO</a></li>
+            <li><a href="yhteystiedot.html">YHTEYSTIEDOT</a></li>
+            <li><a href="kirjautuminen.html">GALLERIA</a></li>
+        </ul>
+    </nav>
+  </nav>
+
+  <div class="admin-container">
+
+        <!-- ASIAKKAAN LUONTI (ID + salasana + kansio) -->
+        <section class="admin-section">
+            <h2>Luo uusi asiakas</h2>
+
+            <label>Asiakas ID</label>
+            <input id="uusiAsiakasId" type="text" placeholder="esim. asiakas123">
+
+            <label>Salasana</label>
+            <input id="uusiAsiakasSalasana" type="password" placeholder="salasana">
+
+            <button onclick="luoAsiakas()">Luo kansio</button>
+        </section>
+
+
+        <!-- KUVATEN LATAUS -->
+        <section class="admin-section">
+            <h2>Lataa kuvia asiakkaalle</h2>
+
+            <label>Asiakas ID</label>
+            <input id="uploadAsiakasId" type="text" placeholder="esim. asiakas123">
+
+            <label>Valitse kuvat</label>
+            <input id="kuvatInput" type="file" multiple>
+
+            <button onclick="lataaKuvat()">Lataa kuvat</button>
+        </section>
+
+        <!-- ASIAKKAAT LISTA -->
+        <section class="admin-section">
+            <h2>Asiakkaat</h2>
+
+            <div id="asiakkaatLista"></div>
+            
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div class="footer-left">
+                <p>© 2026 FOTOVAHVIALA</p>
+                <p>Y‑tunnus: 1234567-8</p>
+            </div>
+
+            <div class="footer-right">
+                <a href="https://instagram.com/fotovahviala" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <img src="kuvat/sivukuvat/IG.png" class="IG"alt="Instagram-logo">
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
