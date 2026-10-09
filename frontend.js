@@ -375,32 +375,3 @@ function lataaZip() {
 // ===============================
 // YHTEYDENOTTOLOMAKE
 // ===============================
-document
-    .getElementById("yhteyslomake")
-    ?.addEventListener("submit", async (e) => {
-
-        e.preventDefault();
-
-        const form = e.target;
-
-        const data = {
-            nimi: form.nimi.value,
-            sahkoposti: form.sahkoposti.value,
-            viesti: form.viesti.value
-        };
-
-        const vastaus = await fetch(`${API}/api/yhteydenotto`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        if (vastaus.ok) {
-            alert("Viesti lähetetty!");
-            form.reset();
-        } else {
-            alert("Lähetys epäonnistui.");
-        }
-    });
