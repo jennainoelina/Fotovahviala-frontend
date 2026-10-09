@@ -72,13 +72,16 @@
               viesti: form.viesti.value
           };
 
-          const vastaus = await fetch("/api/yhteydenotto", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(data)
-          });
+          const vastaus = await fetch(
+                "https://fotovahviala-backend.onrender.com/api/yhteydenotto",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
 
           if (vastaus.ok) {
               alert("Viesti lähetetty!");
