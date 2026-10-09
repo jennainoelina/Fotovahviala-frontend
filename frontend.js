@@ -9,38 +9,48 @@ const API = "https://fotovahviala-backend.onrender.com";
 const track = document.querySelector(".carousel-track");
 const images = document.querySelectorAll(".carousel-track img");
 
-let currentIndex = 0;
-const visibleImages = 3;
+if (track && images.length > 0) {
 
-function updateCarousel() {
-const imageWidth = images[0].offsetWidth;
-    track.style.transform =
-    `translateX(-${currentIndex * imageWidth}px)`;
+    let currentIndex = 0;
+    const visibleImages = 3;
+
+    function updateCarousel() {
+        const imageWidth = images[0].offsetWidth;
+        track.style.transform =
+            `translateX(-${currentIndex * imageWidth}px)`;
     }
 
-function nextSlide() {
-    currentIndex++;
+    function nextSlide() {
+        currentIndex++;
 
-if (currentIndex > images.length - visibleImages) {
-    currentIndex = 0;
+        if (currentIndex > images.length - visibleImages) {
+            currentIndex = 0;
+        }
+
+        updateCarousel();
     }
 
-updateCarousel();
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", nextSlide);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = images.length - visibleImages;
+            }
+
+            updateCarousel();
+        });
+    }
+
+    setInterval(nextSlide, 4000);
 }
-
-document.querySelector(".next").addEventListener("click", nextSlide);
-
-document.querySelector(".prev").addEventListener("click", () => {
-    currentIndex--;
-
-if (currentIndex < 0) {
-currentIndex = images.length - visibleImages;
-}
-
-updateCarousel();
-});
-
-setInterval(nextSlide, 4000);
 
 // ===============================
 // ADMIN: kirjautuminen
